@@ -1,6 +1,9 @@
+<!--
+
 <html>
 <head>
-  <!-- Link the style sheet here -->
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
 <div>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
@@ -27,11 +30,12 @@
   
     <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
       <div class="banner" name="about-header">
-      <!-- Insert header information here -->
+        <h1>About Us</h1>
+        Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.
       </div>
       <div style="display: flex;flex-direction: row; margin:auto">
       <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="/static/person.png" alt="Card image">
+        <img class="card-img-top" src="/static/human.png" alt="Card image">
         <div class="card-body">
           <p class="title">Person1</p>
           <p>Person1 Title</p>
@@ -65,4 +69,121 @@
     
 </div>
 
+</html>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | Best Cars</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#0d6efd; height: 1in;">
+    <div class="container-fluid">
+        <h2 class="text-white me-4">Best Cars</h2>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarText">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link fs-5" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active fs-5" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5" href="/contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- About Section -->
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-4 mb-5">
+        <div class="text-center mb-4">
+            <h1 class="fw-bold">About Best Cars</h1>
+            <p class="text-muted fs-5">
+                Trusted automotive solutions since 2005
+            </p>
+        </div>
+
+        <p class="fs-5">
+            Best Cars is a customer-focused automobile dealership serving buyers across North America.
+            We specialize in both domestic and imported vehicles, offering transparent pricing,
+            verified dealer partnerships, and a seamless buying experience.
+        </p>
+
+        <p class="fs-5">
+            Our platform enables customers to compare vehicles across dealers, view honest pricing,
+            and make informed purchasing decisions. We believe buying a car should be simple,
+            trustworthy, and stress-free.
+        </p>
+    </div>
+
+    <!-- Team Section -->
+    <div class="row text-center mb-5">
+
+        <h2 class="fw-bold mb-4">Leadership Team</h2>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="/static/human.png" alt="CEO">
+                <div class="card-body">
+                    <h5 class="card-title">Michael Thompson</h5>
+                    <p class="text-muted">Chief Executive Officer</p>
+                    <p class="card-text">
+                        Michael leads Best Cars with over 15 years of experience in automotive retail
+                        and digital transformation.
+                    </p>
+                    <p class="fw-light">michael.thompson@bestcars.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="/static/person.png" alt="Operations Head">
+                <div class="card-body">
+                    <h5 class="card-title">Sarah Williams</h5>
+                    <p class="text-muted">Head of Operations</p>
+                    <p class="card-text">
+                        Sarah oversees dealer partnerships and ensures consistent service quality
+                        across all regions.
+                    </p>
+                    <p class="fw-light">sarah.williams@bestcars.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="/static/person.png" alt="Technology Lead">
+                <div class="card-body">
+                    <h5 class="card-title">Daniel Rodriguez</h5>
+                    <p class="text-muted">Director of Technology</p>
+                    <p class="card-text">
+                        Daniel drives the engineering vision behind Best Cars, focusing on reliability,
+                        security, and scalability.
+                    </p>
+                    <p class="fw-light">daniel.rodriguez@bestcars.com</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
 </html>
