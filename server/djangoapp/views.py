@@ -15,6 +15,11 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .populate import initiate
 from .models import CarMake, CarModel
+import json
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Get an instance of a logger
@@ -88,12 +93,12 @@ def get_dealerships(request, state="All"):
 
 
 def get_dealer_details(request, dealer_id):
-if(dealer_id):
-    endpoint = "/fetchDealer/"+str(dealer_id)
-    dealership = get_request(endpoint)
-    return JsonResponse({"status":200,"dealer":dealership})
-else:
-    return JsonResponse({"status":400,"message":"Bad Request"})
+    if(dealer_id):
+        endpoint = "/fetchDealer/"+str(dealer_id)
+        dealership = get_request(endpoint)
+        return JsonResponse({"status":200,"dealer":dealership})
+    else:
+        return JsonResponse({"status":400,"message":"Bad Request"})
 
 def get_dealer_reviews(request, dealer_id):
     # if dealer id has been provided
@@ -120,3 +125,36 @@ def add_review(request):
             return JsonResponse({"status":401,"message":"Error in posting review"})
     else:
         return JsonResponse({"status":403,"message":"Unauthorized"})
+
+
+
+@csrf_exempt
+def registration(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST required"}, status=400)
+
+    data = json.loads(request.body)
+
+    username = data.get("userName")
+    password = data.get("password")
+    first_name = data.get("firstName")
+    last_name = data.get("lastName")
+    email = data.get("email")
+
+    if User.objects.filter(username=username).exists():
+        return JsonResponse({"userName": username, "error": "Already Registered"})
+
+    user = User.objects.create_user(
+        username=username,
+        password=password,
+        first_name=first_name,
+        last_name=last_name,
+        email=email
+    )
+
+    login(request, user)
+
+    return JsonResponse({
+        "userName": username,
+        "status": "Authenticated"
+    })
